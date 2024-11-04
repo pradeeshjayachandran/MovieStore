@@ -6,9 +6,9 @@ namespace MovieStore.Api.Services;
 
 public class MovieService
 {
-    private readonly MovieRepository _movieRepository;
+    private readonly IMovieRepository _movieRepository;
 
-    public MovieService(MovieRepository movieRepository)
+    public MovieService(IMovieRepository movieRepository)
     {
         _movieRepository = movieRepository;
     }
@@ -25,8 +25,8 @@ public class MovieService
             InsertedOn = DateTime.UtcNow
         };
         
-        await _movieRepository.InsertMovieAsync(movie);
-        return movie.Id;
+        var movieId = await _movieRepository.InsertMovieAsync(movie);
+        return movieId;
     }
 
     public async Task<MovieDto> GetMovieByIdAsync(string id)
