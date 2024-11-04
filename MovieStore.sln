@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStore.Api", "MovieStore.Api\MovieStore.Api.csproj", "{5AE6CE42-F11E-4195-8C23-68FD5952BE78}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{59A8F723-9F2A-47A8-9312-2539E8D69CB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStore.Api.Unit.Test", "Tests\MovieStore.Api.Unit.Test\MovieStore.Api.Unit.Test.csproj", "{51B38E73-5347-4945-BFB1-6E53DF9966E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,12 @@ Global
 		{5AE6CE42-F11E-4195-8C23-68FD5952BE78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AE6CE42-F11E-4195-8C23-68FD5952BE78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AE6CE42-F11E-4195-8C23-68FD5952BE78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51B38E73-5347-4945-BFB1-6E53DF9966E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51B38E73-5347-4945-BFB1-6E53DF9966E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51B38E73-5347-4945-BFB1-6E53DF9966E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51B38E73-5347-4945-BFB1-6E53DF9966E0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{51B38E73-5347-4945-BFB1-6E53DF9966E0} = {59A8F723-9F2A-47A8-9312-2539E8D69CB4}
 	EndGlobalSection
 EndGlobal
