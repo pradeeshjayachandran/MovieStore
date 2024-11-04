@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MovieStore.Api.Contracts;
 using MovieStore.Api.Services;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace MovieStore.Api.Controllers;
 
@@ -16,6 +17,10 @@ public class MovieController : ControllerBase
     }
     
     [HttpPost]
+    [SwaggerOperation(
+        Summary = "Adds movie to moviestore",
+        Description = "Inserts the given movie to moviestore with generated id"
+    )]
     public async Task<ActionResult> AddMovie([FromBody] MovieDto movie)
     {
         var movieId = await _movieService.AddMovieAsync(movie);
@@ -23,6 +28,10 @@ public class MovieController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [SwaggerOperation(
+        Summary = "Gets movie by id", 
+        Description = "Fetches movie details from movie store using the specified id"
+    )]
     public async Task<ActionResult> GetMovie(string id)
     {
         var movie = await _movieService.GetMovieByIdAsync(id);
