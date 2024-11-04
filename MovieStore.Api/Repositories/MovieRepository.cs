@@ -5,7 +5,7 @@ using MovieStore.Api.Models;
 
 namespace MovieStore.Api.Repositories;
 
-public class MovieRepository
+public class MovieRepository : IMovieRepository
 {
     private readonly IMongoCollection<Movie> _movieCollection;
 
@@ -17,12 +17,23 @@ public class MovieRepository
         _movieCollection = database.GetCollection<Movie>(Movie.CollectionName);
     }
 
-    internal async Task InsertMovieAsync(Movie movie)
+    /// <summary>
+    /// Inserts given movie into database
+    /// </summary>
+    /// <param name="movie"> Movie to be inserted</param>
+    /// <returns></returns>>
+    public async Task<string> InsertMovieAsync(Movie movie)
     {
         await _movieCollection.InsertOneAsync(movie);
+        return movie.Id;
     }
     
-    internal async Task<Movie> GetMovieById(string id)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public async Task<Movie> GetMovieById(string id)
     {
         var movie = await _movieCollection.FindAsync(movie => movie.Id == id);
         return await movie.FirstOrDefaultAsync();
